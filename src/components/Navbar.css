@@ -1,0 +1,49 @@
+.container{
+    border:2px solid black;
+    
+}
+
+.nav-list{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.link-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-left: 5rem; */
+    /* border:2px solid black; */
+    width: 45%;
+    padding-right: 6rem;
+}
+.link{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    
+    
+}
+
+.right{
+    /* border: 2px solid black; */
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.right-logo{
+    height: 8vh;
+}
+
+.contact{
+    background-color:#17a72a;
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 0.6rem;
+}
+
