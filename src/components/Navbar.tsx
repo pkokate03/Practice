@@ -1,9 +1,14 @@
 import React from 'react'
 import './Navbar.css'
 
-export default function Navbar() {
+
+type FontType={
+    "font-style":string
+}
+
+export default function Navbar(props:FontType) {
   return (
-    <nav className="Nav">
+    <nav className="Nav" style={{fontFamily:props['font-style']}} >
         <div className='container'>
           <ul className='nav-list'>
             <li className='logo' >
