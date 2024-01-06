@@ -12,6 +12,11 @@
 
 }
 
+.nav-list .logo h2{
+    color:#1854c4;
+    letter-spacing: 2px;
+}
+
 
 
 .nav-list{
@@ -34,7 +39,7 @@
 .link{
     text-decoration: none;
     color:black;
-    font-weight: bold;
+    font-weight: 600;
     
     
 }
@@ -56,7 +61,7 @@
 .logo{
     display: flex;
     justify-content: space-between;
-    width: 130px;
+    width: 135px;
     margin-left: -2rem;
     margin-right:1rem ;
 }
