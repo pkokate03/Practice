@@ -36,6 +36,7 @@ _id:string
       
     }).catch(error => {
       console.log(error);
+      setloading(false);
     });
 
     
