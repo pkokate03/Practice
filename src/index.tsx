@@ -4,13 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import './components/Navbar.module.scss
+import { QueryClient, QueryClientProvider } from "react-query";
 
+
+const queryclient=new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+
+
   <React.StrictMode>
+    <QueryClientProvider client={queryclient} >
     <App />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

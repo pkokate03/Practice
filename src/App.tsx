@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Slider from './components/Slider';
 import Spinner from './components/Spinner';
 import axios from 'axios';
+import { useQuery } from 'react-query';
 
 
 function App() {
@@ -26,24 +27,41 @@ _id:string
   const [loading,setloading]=useState<boolean>(true);
   const [obj,setobj]=useState(<Spinner/>)
 
-
-  useEffect(()=>{
+  const fetchData=()=>{
     setloading(true);
     axios.get(`${url}api/notes/all-notes`).then((resp)=>{
-      console.log(1)
-      setarr(resp.data[0]);
-      setloading(false);
+          setarr(resp.data[0]);
+          setloading(false);
+        //  console.log(resp.data[0]);
+          return resp.data[0]; 
+        }).catch(error=>{
+          console.log("error fetching data....Server not started!")
+          setloading(false);
+        });
+  }
+
+
+  const {data, isLoading,error,refetch}=useQuery("notes",fetchData,{
+    refetchOnWindowFocus: false
+  });
+
+  // useEffect(()=>{
+  //   setloading(true);
+  //   axios.get(`${url}api/notes/all-notes`).then((resp)=>{
+  //     console.log(1)
+  //     setarr(resp.data[0]);
+  //     setloading(false);
       
-    }).catch(error => {
-      console.log(error);
-      setloading(false);
-    });
+  //   }).catch(error => {
+  //     console.log(error);
+  //     setloading(false);
+  //   });
 
     
-  },[])
+  // },[])
 
   if(loading){
-
+   // console.log("loading");
     return <Spinner/>
   }
 
@@ -56,12 +74,17 @@ _id:string
      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum explicabo sunt nostrum incidunt dicta recusandae unde quo iure rem harum facilis temporibus, vitae magni aut officia. Et eius consequuntur ducimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ea, cumque magnam provident nam ratione ex suscipit blanditiis at itaque commodi saepe rem accusamus quas assumenda est! Incidunt, quae laboriosam. </p>
      <br />
     
-     {arr?
+     {!error && arr?
      <>
-     <p>{arr.author+"\n"+arr.title+"\n"+arr.description+"\n"}</p>
-     <h2>The above text was fetched from mongoDB</h2>
-     </>:null}
-     <br /><br /><br /><br /><br /><br /><br /><br />
+     <p>{arr.author+
+     arr.title+
+     arr.description
+     } <img style={{width:"180px"}} src={arr.image} alt="" /> </p>
+     <h2 style={{color:"blue"}} >The above content was fetched from mongoDB</h2>
+     </>:<h2 style={{color:"red"}} >Error fetching data!</h2>}
+     <br />
+     <button className='refetch' onClick={()=>refetch()} >Refetch data</button>
+     <br /><br /><br /><br /><br /><br /><br />
      <Slider/>
      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
      <h2>hi</h2>
