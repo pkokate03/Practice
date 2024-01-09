@@ -1,3 +1,4 @@
+.App{
 .refetch{
   border: 2px solid blue;
   border-radius: 3rem;
@@ -10,4 +11,29 @@
 
 .refetch:hover{
   background-color: rgb(210, 203, 243);
+}
+
+.grid{
+  /* border: 2px solid black; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  row-gap: 4rem;
+  column-gap: 4rem;
+}
+.box{
+  border: 2px solid black;
+  height: 150px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+.Pgrid{
+  border: 2px solid black;
+}
+.Pgrid h3{
+  text-align: center;
+  /* border: 2px solid black; */
+  
+}
 }

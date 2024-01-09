@@ -63,7 +63,7 @@ export default function Navbar(props:FontType) {
                 </li>
             </div>
             <li className='right' >
-                <button className='contact' >Get in touch</button>
+                <button className='contact' >Get In Touch</button>
                 <img className='right-logo' src="https://aksha.algoanalytics.com/images/image_54.svg" alt="" />
             </li>
 

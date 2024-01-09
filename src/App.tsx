@@ -85,9 +85,19 @@ _id:string
      <br />
      <button className='refetch' onClick={()=>refetch()} >Refetch data</button>
      <br /><br /><br /><br /><br /><br /><br />
-     <Slider/>
-     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-     <h2>hi</h2>
+     
+
+     <div className="Pgrid">
+     <h3>Grid Box</h3>
+     <div className="grid">
+      <div className="box">1</div>
+      <div className="box">2</div>
+      <div className="box">3</div>
+      <div className="box">4</div>
+      <div className="box">5</div>
+      <div className="box">6</div>
+     </div>
+    </div>
     </div>
   );
 }
