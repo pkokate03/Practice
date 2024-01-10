@@ -6,6 +6,7 @@ import Slider from './components/Slider';
 import Spinner from './components/Spinner';
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import Form from './components/Form';
 
 
 function App() {
@@ -26,6 +27,7 @@ _id:string
   const [arr,setarr]=useState<any>(null)
   const [loading,setloading]=useState<boolean>(true);
   const [obj,setobj]=useState(<Spinner/>)
+  const [name,setname]=useState("");
 
   const fetchData=()=>{
     setloading(true);
@@ -40,9 +42,9 @@ _id:string
         });
   }
 
-
+  const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
   const {data, isLoading,error,refetch}=useQuery("notes",fetchData,{
-    refetchOnWindowFocus: false
+      staleTime:Infinity ,
   });
 
   // useEffect(()=>{
@@ -72,8 +74,10 @@ _id:string
      <Navbar font-style={'Playfair Display,serif'} />
      <br /><br /><br /><br /><br /><br />
      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum explicabo sunt nostrum incidunt dicta recusandae unde quo iure rem harum facilis temporibus, vitae magni aut officia. Et eius consequuntur ducimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ea, cumque magnam provident nam ratione ex suscipit blanditiis at itaque commodi saepe rem accusamus quas assumenda est! Incidunt, quae laboriosam. </p>
+     <br /><br />
+     {name?<h2 style={{color:"red"}} >Hello!{name}</h2>:null}
      <br />
-    
+    <Form onSubmit={setname} />
      {!error && arr?
      <>
      <p>{arr.author+
@@ -87,7 +91,7 @@ _id:string
      <br /><br /><br /><br /><br /><br /><br />
      
 
-     <div className="Pgrid">
+    <div className="Pgrid">
      <h3>Grid Box</h3>
      <div className="grid">
       <div className="box">1</div>

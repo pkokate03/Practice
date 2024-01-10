@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './styles/Navbar.css'
+import {useToggleDisp} from '../hooks/useToggleDisp'
 
 
 type FontType={
@@ -9,17 +10,18 @@ type FontType={
 
 export default function Navbar(props:FontType) {
 
-    const [disp,setdisp]=useState<string>("none");
+    //const [disp,setdisp]=useState<string>("none");
+    const {display:disp,toggleDisp}=useToggleDisp()
     // const [width,setwidth]=useState(window.innerWidth)
 
-    const toggle=()=>{
-        if(disp==="none"){
-            setdisp("flex");
-        }
-        else{
-            setdisp("none");
-        }
-    }
+    // const toggle=()=>{
+    //     if(disp==="none"){
+    //         setdisp("flex");
+    //     }
+    //     else{
+    //         setdisp("none");
+    //     }
+    // }
 
     // useEffect(()=>{
     //     setwidth(window.innerWidth);
@@ -67,7 +69,7 @@ export default function Navbar(props:FontType) {
                 <img className='right-logo' src="https://aksha.algoanalytics.com/images/image_54.svg" alt="" />
             </li>
 
-            <li onClick={toggle} className='menu' >
+            <li onClick={toggleDisp} className='menu' >
                 Menu
             </li>
 

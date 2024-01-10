@@ -6,8 +6,18 @@ import reportWebVitals from './reportWebVitals';
 // import './components/Navbar.module.scss
 import { QueryClient, QueryClientProvider } from "react-query";
 
-
-const queryclient=new QueryClient();
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
+const queryclient=new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: twentyFourHoursInMs,
+    },
+  },
+});
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
